@@ -152,33 +152,35 @@
         .notebook-container.open .cover-wrapper { transform: rotateY(-155deg); }
         .notebook-container.open { left: 56%; }
 
-        /* --- ADAPTACIÓN CELULAR CORREGIDA --- */
+        /* --- AJUSTES CELULAR --- */
         @media (max-width: 768px) {
             .notebook-container { 
-                width: 260px; 
-                height: 450px; 
+                width: 250px; 
+                height: 420px; 
                 left: 50%;
             }
 
-            /* Al abrirse, movemos el cuaderno a la derecha para que la tapa (canción) sea visible */
+            /* Desplazamos más el libro a la derecha y abrimos la tapa con menos ángulo */
             .notebook-container.open { 
-                left: 65%; 
-                transform: translate(-50%, -50%) scale(0.85); 
+                left: 72%; /* Movemos el centro más a la derecha */
+                transform: translate(-50%, -50%) scale(0.8); 
             }
 
             .notebook-container.open .cover-wrapper { 
-                transform: rotateY(-150deg); 
+                transform: rotateY(-140deg); /* Menos rotación para que la tapa no se salga */
             }
 
             .cover-back {
-                background-size: contain; /* Asegura que la canción se vea completa sin cortes */
+                background-size: 90% auto; /* Forzamos tamaño visible */
                 background-position: center;
             }
 
-            /* Flores visibles y grandes en la base */
-            .flowers { transform: scale(0.65); bottom: -15px; }
-            .flowers--left { left: -35px; }
+            /* Flores más grandes y visibles */
+            .flowers { transform: scale(0.6); bottom: -20px; }
+            .flowers--left { left: -30px; }
             .flowers--right { right: -5px; }
+
+            .page { padding: 25px 15px 20px 25px; font-size: 0.85rem; }
         }
 
         @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
