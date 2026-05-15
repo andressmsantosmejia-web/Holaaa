@@ -26,7 +26,6 @@
             font-family: 'Cambria', Georgia, serif;
         }
 
-        
         .night {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -46,7 +45,6 @@
             animation: twinkle 5s infinite ease-in-out;
         }
 
-      
         .flowers {
             position: fixed;
             bottom: 0;
@@ -90,7 +88,6 @@
             border-radius: 1vmin; animation: grow-flower-tree 4s backwards;
         }
 
-       
         .notebook-container {
             position: absolute;
             top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -126,12 +123,11 @@
         .cover-front h2 { color: #ffeb3b; font-size: 2rem; margin-bottom: 12px; font-family: monospace; }
         .cover-front p { color: #e0e0e0; font-size: 0.85rem; letter-spacing: 2px; }
 
-      
         .cover-back {
             background-color: #1a0b16; 
             transform: rotateY(180deg);
             background-image: url('ostias.jpeg'); 
-            background-size: 85%; /* Tamaño en PC */
+            background-size: 85%;
             background-repeat: no-repeat;
             background-position: center;
             z-index: 1;
@@ -153,46 +149,36 @@
             margin-top: 20px; font-size: 1.2rem; font-family: 'Brush Script MT', cursive;
         }
 
-        
         .notebook-container.open .cover-wrapper { transform: rotateY(-155deg); }
         .notebook-container.open { left: 56%; }
 
-        
+        /* --- ADAPTACIÓN CELULAR CORREGIDA --- */
         @media (max-width: 768px) {
             .notebook-container { 
-                width: 280px; 
-                height: 480px; 
-                left: 50%; 
-                transform: translate(-50%, -50%) scale(0.95); 
+                width: 260px; 
+                height: 450px; 
+                left: 50%;
             }
 
-            
+            /* Al abrirse, movemos el cuaderno a la derecha para que la tapa (canción) sea visible */
             .notebook-container.open { 
-                left: 50%; 
-                transform: translate(-40%, -50%) scale(0.9); 
+                left: 65%; 
+                transform: translate(-50%, -50%) scale(0.85); 
             }
 
             .notebook-container.open .cover-wrapper { 
-                transform: rotateY(-145deg); 
+                transform: rotateY(-150deg); 
             }
 
             .cover-back {
-                background-size: 90%; 
+                background-size: contain; /* Asegura que la canción se vea completa sin cortes */
+                background-position: center;
             }
 
-            .cover-front h2 { font-size: 1.6rem; }
-
-            .page {
-                font-size: 0.9rem;
-                padding: 25px 15px 20px 30px;
-                line-height: 24px;
-                background-size: 100% 24px;
-            }
-
-           
-            .flowers { transform: scale(0.4); bottom: -30px; }
-            .flowers--left { left: -40px; }
-            .flowers--right { right: -10px; }
+            /* Flores visibles y grandes en la base */
+            .flowers { transform: scale(0.65); bottom: -15px; }
+            .flowers--left { left: -35px; }
+            .flowers--right { right: -5px; }
         }
 
         @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
